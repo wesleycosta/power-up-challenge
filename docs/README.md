@@ -2,7 +2,7 @@
 
 ## Overview
 
-O Power-Up-Challenge é um microsserviço destinado ao gerenciamento de metas e metas diárias para os usuários de um aplicativo. 
+O Power-Up-Challenge é um microsserviço destinado ao gerenciamento de metas para os usuários de um aplicativo. 
 Ele permite que os usuários cadastrem suas metas, registrem seu progresso diário e obtenham insights sobre seu desempenho ao longo do tempo.
 
 ## Funcionalidades Principais
