@@ -2,8 +2,7 @@
 
 [![CodeFactor](https://www.codefactor.io/repository/github/wesleycosta/power-up-challenge/badge)](https://www.codefactor.io/repository/github/wesleycosta/power-up-challenge)
 
-O Power-Up-Challenge é um microsserviço destinado ao gerenciamento de metas para os usuários de um aplicativo. 
-Ele permite que os usuários cadastrem suas metas, registrem seu progresso diário e obtenham insights sobre seu desempenho ao longo do tempo.
+O Power-Up-Challenge é um microsserviço que gerencia metas em um aplicativo, permitindo que os usuários cadastrem, acompanhem o progresso diário e obtenham insights sobre seu desempenho ao longo do tempo de maneira fácil e intuitiva.
 
 ## Funcionalidades Principais
 
