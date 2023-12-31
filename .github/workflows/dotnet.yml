@@ -9,6 +9,7 @@ on:
 jobs:
   build-and-tests:
     runs-on: ubuntu-latest
+    name: Build & Tests
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET
@@ -24,6 +25,8 @@ jobs:
 
   build-and-publish-image:
     runs-on: ubuntu-latest
+    needs: build-and-tests
+    name: Publish Docker Hub
     steps:
     - name: Print Docker Hub Secrets
       run: |
