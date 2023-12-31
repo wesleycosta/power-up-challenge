@@ -27,7 +27,7 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./coverage/coverage.opencover.xml
+          file: ./TestResults/coverage.opencover.xml
 
   build-and-publish-image:
     runs-on: ubuntu-latest
