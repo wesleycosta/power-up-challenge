@@ -11,11 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerUp.Challenge.Core", "s
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerUp.Challenge.Api", "src\PowerUp.Challenge.Api\PowerUp.Challenge.Api.csproj", "{D3844F7A-2EAD-4058-AF12-87DF25F5A84C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerUp.Challenge.Domain", "src\PowerUp.Challenge.Domain\PowerUp.Challenge.Domain.csproj", "{1BE23E93-A905-4ABC-B57B-A9D655861699}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerUp.Challenge.Domain", "src\PowerUp.Challenge.Domain\PowerUp.Challenge.Domain.csproj", "{1BE23E93-A905-4ABC-B57B-A9D655861699}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerUp.Challenge.Infrastructure", "src\PowerUp.Challenge.Infrastructure\PowerUp.Challenge.Infrastructure.csproj", "{671D5BBF-FD01-43FA-866A-24CE780DFE7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerUp.Challenge.Infrastructure", "src\PowerUp.Challenge.Infrastructure\PowerUp.Challenge.Infrastructure.csproj", "{671D5BBF-FD01-43FA-866A-24CE780DFE7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerUp.Challenge.Infrastructure.CrossCutting.IoC", "src\PowerUp.Challenge.Infrastructure.CrossCutting.IoC\PowerUp.Challenge.Infrastructure.CrossCutting.IoC.csproj", "{71D420C0-ADC9-4F18-9340-6BC3240D57A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerUp.Challenge.Infrastructure.CrossCutting.IoC", "src\PowerUp.Challenge.Infrastructure.CrossCutting.IoC\PowerUp.Challenge.Infrastructure.CrossCutting.IoC.csproj", "{71D420C0-ADC9-4F18-9340-6BC3240D57A2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{66261EE1-F137-40D4-8721-349C7EB7E13A}"
 EndProject
@@ -28,6 +28,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "unit-tests", "unit-tests", "{D74E651C-EFF0-4E40-BE96-157410D4FD4B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "integration-tests", "integration-tests", "{5A049708-C4C2-468A-8D1A-637BE3B246D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerUp.Challenge.Domain.Tests", "tests\PowerUp.Challenge.Domain.Tests\PowerUp.Challenge.Domain.Tests.csproj", "{02AA0F8D-DE65-41E5-B64D-13C6571317EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +57,10 @@ Global
 		{71D420C0-ADC9-4F18-9340-6BC3240D57A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71D420C0-ADC9-4F18-9340-6BC3240D57A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71D420C0-ADC9-4F18-9340-6BC3240D57A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02AA0F8D-DE65-41E5-B64D-13C6571317EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02AA0F8D-DE65-41E5-B64D-13C6571317EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02AA0F8D-DE65-41E5-B64D-13C6571317EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02AA0F8D-DE65-41E5-B64D-13C6571317EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,6 +77,7 @@ Global
 		{17D48E9B-356A-49B8-AB07-79E18BB17E29} = {CA7E5310-AE12-4DE4-B7E6-0F9B4F14C05A}
 		{D74E651C-EFF0-4E40-BE96-157410D4FD4B} = {21AEF228-5835-4B48-AD24-CCE3A6E47A73}
 		{5A049708-C4C2-468A-8D1A-637BE3B246D5} = {21AEF228-5835-4B48-AD24-CCE3A6E47A73}
+		{02AA0F8D-DE65-41E5-B64D-13C6571317EF} = {D74E651C-EFF0-4E40-BE96-157410D4FD4B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C654EBF0-A569-49CF-AD8B-39779F535AE7}
