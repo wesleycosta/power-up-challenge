@@ -23,6 +23,10 @@ jobs:
       - name: Test
         run: dotnet test --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
 
+      - name: List files in directory
+        run: ls -R
+        working-directory: .
+
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         with:
