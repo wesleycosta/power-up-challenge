@@ -23,16 +23,16 @@ jobs:
       - name: Test with coverage
         run: |
           dotnet tool install -g coverlet.console
-          dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=./TestResults/
+          dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=./coverage/
 
-      - name: Display files in TestResults directory
-        run: ls -R ./TestResults/
+      - name: Display files in coverage directory
+        run: ls -R ./coverage/
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./TestResults/coverage.opencover.xml
+          file: ./coverage/coverage.opencover.xml
 
   build-and-publish-image:
     runs-on: ubuntu-latest
