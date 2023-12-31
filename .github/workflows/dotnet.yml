@@ -54,8 +54,11 @@ jobs:
           DOCKER_USER: ${{ secrets.DOCKER_USER }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag wesleycosta/power-up-challenge:latest
+      - name: Build the Docker image with timestamp tag
+        run: |
+          IMAGE_TAG=wesleycosta/power-up-challenge:$(date +'%Y%m%d%H%M%S')
+          docker build . --file Dockerfile --tag $IMAGE_TAG
+          echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
 
       - name: Docker Push
-        run: docker push wesleycosta/power-up-challenge:latest
+        run: docker push ${{ env.IMAGE_TAG }}
