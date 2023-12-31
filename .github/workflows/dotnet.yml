@@ -31,11 +31,12 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: Login to Docker Hub
-      run: echo $DOCKER_PASSWORD | docker login -u $DOCKER_USER --password-stdin
+      run: |
+        echo '{"auths":{"https://index.docker.io/v1/":{"auth":"'"$(echo -n $DOCKER_USER:$DOCKER_PASSWORD | base64)"'"}}}' > ~/docker-auth.json
+        docker login --username $DOCKER_USER --password-stdin < ~/docker-auth.json
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        DOCKER_CLI_ASK_PASS: "0"
 
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag wesleycosta/power-up-challenge:$(date +%s)
