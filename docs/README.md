@@ -2,6 +2,7 @@
 
 [![CodeFactor](https://www.codefactor.io/repository/github/wesleycosta/power-up-challenge/badge)](https://www.codefactor.io/repository/github/wesleycosta/power-up-challenge)
 [![.NET](https://github.com/wesleycosta/power-up-challenge/actions/workflows/dotnet.yml/badge.svg)](https://github.com/wesleycosta/power-up-challenge/actions/workflows/dotnet.yml)
+[![codecov](https://codecov.io/gh/wesleycosta/power-up-challenge/graph/badge.svg?token=TETCQEJXDQ)](https://codecov.io/gh/wesleycosta/power-up-challenge)
 
 O Power-Up-Challenge é um microsserviço que gerencia metas em um aplicativo, permitindo que os usuários cadastrem, acompanhem o progresso diário e obtenham insights sobre seu desempenho ao longo do tempo de maneira fácil e intuitiva.
 
