@@ -4,6 +4,14 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest' 
 
+steps:
+- task: UseDotNet@2
+  displayName: 'Install .NET Core SDK'
+  inputs:
+    version: 8.x
+    performMultiLevelLookup: true
+    includePreviewVersions: true # Required for preview versions
+
 variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
@@ -18,7 +26,7 @@ stages:
     - task: UseDotNet@2
       inputs:
         packageType: 'sdk'
-        version: '8' 
+        version: '8.x' 
 
     - task: NuGetToolInstaller@1
       inputs:
