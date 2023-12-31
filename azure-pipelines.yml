@@ -1,17 +1,14 @@
-name: power-up-challenge
-
 trigger:
-- main  # Substitua pelo branch desejado
+- main
 
 pool:
-  vmImage: 'windows-latest'  # Escolha a imagem apropriada
+  vmImage: 'ubuntu-latest' 
 
 variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  dockerRegistryServiceConnection: 'nome-da-conexao-do-servico-dockerhub'  # Substitua pelo nome da conexão do Docker Hub no Azure Pipelines
-
+  
 stages:
 - stage: Build
   jobs:
@@ -21,7 +18,7 @@ stages:
     - task: UseDotNet@2
       inputs:
         packageType: 'sdk'
-        version: '3.x'  # Substitua pela versão desejada do SDK .NET
+        version: '8' 
 
     - task: NuGetToolInstaller@1
       inputs:
@@ -35,18 +32,3 @@ stages:
 
     - script: dotnet test $(solution) --configuration $(buildConfiguration) --no-build
       displayName: 'Run Tests'
-
-- stage: Publish
-  jobs:
-  - job: Publish
-    displayName: 'Publish Docker Image'
-    steps:
-    - task: Docker@2
-      displayName: 'Build and Push Docker Image'
-      inputs:
-        command: 'buildAndPush'
-        repository: 'sua-conta-dockerhub/nome-do-repositorio'
-        dockerfile: '**/Dockerfile'
-        buildContext: '.'
-        tags: '$(Build.BuildId)'
-        containerRegistry: 'DockerHubConnection'  # Substitua pelo nome da conexão do Docker Hub no Azure Pipelines
