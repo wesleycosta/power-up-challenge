@@ -1,3 +1,5 @@
+name: power-up-challenge
+
 trigger:
 - main  # Substitua pelo branch desejado
 
