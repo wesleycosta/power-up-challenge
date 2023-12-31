@@ -23,10 +23,6 @@ jobs:
       - name: Test
         run: dotnet test --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
 
-      - name: List files in directory
-        run: ls -R
-        working-directory: .
-
       - name: Display test results
         run: cat ./tests/PowerUp.Challenge.Domain.Tests/TestResults/*.xml
 
@@ -35,13 +31,6 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: ./tests/PowerUp.Challenge.Domain.Tests/TestResults/coverage.opencover.xml
-
-      - name: Check test status before Docker build
-        run: |
-          if [ -z "$(grep '<!-- xunit:' ./tests/PowerUp.Challenge.Domain.Tests/TestResults/*.xml)" ]; then
-            echo "Tests failed. Skipping Docker build and push."
-            exit 1
-          fi
 
   build-and-publish-image:
     runs-on: ubuntu-latest
