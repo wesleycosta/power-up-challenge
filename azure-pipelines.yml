@@ -25,16 +25,16 @@ stages:
       inputs:
         packageType: 'sdk'
         version: '8.x' 
-
-    - task: NuGetToolInstaller@1
+        
+    - task: DotNetCoreCLI@2
       inputs:
-        version: 'latest'
+        command: 'restore'
+        projects: '**/*.sln'
+        feedsToUse: 'select'
 
-    - script: dotnet restore $(solution)
-      displayName: 'Restore'
-
-    - script: dotnet build $(solution) --configuration $(buildConfiguration) --no-restore
-      displayName: 'Build'
-
-    - script: dotnet test $(solution) --configuration $(buildConfiguration) --no-build
-      displayName: 'Run Tests'
+    - task: DotNetCoreCLI@2
+      inputs:
+        command: 'build'
+        projects: '**/*.csproj'
+        arguments: '--no-restore'
+      name:   build
