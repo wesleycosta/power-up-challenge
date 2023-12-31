@@ -1,34 +1,50 @@
-# ASP.NET Core (.NET Framework)
-# Build and test ASP.NET Core projects targeting the full .NET Framework.
-# Add steps that publish symbols, save build artifacts, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
-
 trigger:
-- main
+- main  # Substitua pelo branch desejado
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'windows-latest'  # Escolha a imagem apropriada
 
 variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  dockerRegistryServiceConnection: 'nome-da-conexao-do-servico-dockerhub'  # Substitua pelo nome da conexão do Docker Hub no Azure Pipelines
 
-steps:
-- task: NuGetToolInstaller@1
+stages:
+- stage: Build
+  jobs:
+  - job: Build
+    displayName: 'Build and Test'
+    steps:
+    - task: UseDotNet@2
+      inputs:
+        packageType: 'sdk'
+        version: '3.x'  # Substitua pela versão desejada do SDK .NET
 
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
+    - task: NuGetToolInstaller@1
+      inputs:
+        version: 'latest'
 
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    - script: dotnet restore $(solution)
+      displayName: 'Restore'
 
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    - script: dotnet build $(solution) --configuration $(buildConfiguration) --no-restore
+      displayName: 'Build'
+
+    - script: dotnet test $(solution) --configuration $(buildConfiguration) --no-build
+      displayName: 'Run Tests'
+
+- stage: Publish
+  jobs:
+  - job: Publish
+    displayName: 'Publish Docker Image'
+    steps:
+    - task: Docker@2
+      displayName: 'Build and Push Docker Image'
+      inputs:
+        command: 'buildAndPush'
+        repository: 'sua-conta-dockerhub/nome-do-repositorio'
+        dockerfile: '**/Dockerfile'
+        buildContext: '.'
+        tags: '$(Build.BuildId)'
+        containerRegistry: 'DockerHubConnection'  # Substitua pelo nome da conexão do Docker Hub no Azure Pipelines
