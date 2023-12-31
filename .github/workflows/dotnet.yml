@@ -27,11 +27,21 @@ jobs:
         run: ls -R
         working-directory: .
 
+      - name: Display test results
+        run: cat ./tests/PowerUp.Challenge.Domain.Tests/TestResults/*.xml
+
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: /tests/TestResults/coverage.opencover.xml
+          file: ./tests/PowerUp.Challenge.Domain.Tests/TestResults/coverage.opencover.xml
+
+      - name: Check test status before Docker build
+        run: |
+          if [ -z "$(grep '<!-- xunit:' ./tests/PowerUp.Challenge.Domain.Tests/TestResults/*.xml)" ]; then
+            echo "Tests failed. Skipping Docker build and push."
+            exit 1
+          fi
 
   build-and-publish-image:
     runs-on: ubuntu-latest
