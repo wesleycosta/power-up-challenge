@@ -33,6 +33,17 @@ jobs:
     - name: Login to Docker Hub
       run: |
         echo "${DOCKER_PASSWORD}" | docker login --username $DOCKER_USER --password-stdin
+        mkdir -p ~/.docker
+        cat <<EOF > ~/.docker/config.json
+        {
+          "auths": {
+            "https://index.docker.io/v1/": {
+              "auth": "$(echo -n $DOCKER_USER:$DOCKER_PASSWORD | base64)"
+            }
+          },
+          "credsStore": "secretservice"
+        }
+        EOF
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
