@@ -1,9 +1,4 @@
-# Power-Up-Challenge
-
-[![CodeFactor](https://www.codefactor.io/repository/github/wesleycosta/power-up-challenge/badge)](https://www.codefactor.io/repository/github/wesleycosta/power-up-challenge)
-[![.NET](https://github.com/wesleycosta/power-up-challenge/actions/workflows/dotnet.yml/badge.svg)](https://github.com/wesleycosta/power-up-challenge/actions/workflows/dotnet.yml)
-[![codecov](https://codecov.io/gh/wesleycosta/power-up-challenge/graph/badge.svg?token=TETCQEJXDQ)](https://codecov.io/gh/wesleycosta/power-up-challenge)
-
+# PowerUp
 O PowerUp é um aplicativo que gerencia hábitos, permitindo que os usuários cadastrem e acompanhem o progresso diário e obtenham insights sobre seu desempenho ao longo do tempo de maneira fácil e intuitiva.
 
 ## Funcionalidades Principais
@@ -16,6 +11,12 @@ O PowerUp é um aplicativo que gerencia hábitos, permitindo que os usuários ca
 
 3. **Consulta de Desempenho:**
    - Fornecer endpoints que permitam aos usuários consultar seu histórico de desempenho, incluindo a visualização de hábitos alcançados e não alcançados.
+
+# Power-Up-Challenge
+
+[![CodeFactor](https://www.codefactor.io/repository/github/wesleycosta/power-up-challenge/badge)](https://www.codefactor.io/repository/github/wesleycosta/power-up-challenge)
+[![.NET](https://github.com/wesleycosta/power-up-challenge/actions/workflows/dotnet.yml/badge.svg)](https://github.com/wesleycosta/power-up-challenge/actions/workflows/dotnet.yml)
+[![codecov](https://codecov.io/gh/wesleycosta/power-up-challenge/graph/badge.svg?token=TETCQEJXDQ)](https://codecov.io/gh/wesleycosta/power-up-challenge)
 
 ## Arquitetura
 
