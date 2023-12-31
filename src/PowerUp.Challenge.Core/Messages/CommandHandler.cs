@@ -4,13 +4,13 @@ namespace PowerUp.Challenge.Core.Messages;
 
 public abstract class CommandHandler
 {
-    public ValidationResult ValidationResult;
+    private ValidationResult _validationResult;
 
-    public CommandHandler() =>
-        ValidationResult = new ValidationResult();
+    protected CommandHandler() =>
+        _validationResult = new ValidationResult();
 
     public void Notify(string message) =>
-        ValidationResult?.Errors.Add(new ValidationFailure(string.Empty, message));
+        _validationResult?.Errors.Add(new ValidationFailure(string.Empty, message));
 
     public async Task<CommandHandlerResult> SaveData(IUnitOfWork unitOfWork, object responseCommand)
     {
@@ -22,7 +22,7 @@ public abstract class CommandHandler
 
         return new()
         {
-            ValidationResult = ValidationResult,
+            ValidationResult = _validationResult,
             Response = responseCommand
         };
     }
@@ -30,7 +30,7 @@ public abstract class CommandHandler
     public CommandHandlerResult Response() =>
         new()
         {
-            ValidationResult = ValidationResult
+            ValidationResult = _validationResult
         };
 
     public CommandHandlerResult BadCommand() =>
@@ -44,26 +44,26 @@ public abstract class CommandHandler
 
     public CommandHandlerResult BadCommand(Command command)
     {
-        ValidationResult = command.ValidationResult;
+        _validationResult = command.ValidationResult;
         return new()
         {
-            ValidationResult = ValidationResult
+            ValidationResult = _validationResult
         };
     }
 
     public CommandHandlerResult BadCommand(ValidationResult validationResult)
     {
-        ValidationResult = validationResult;
+        _validationResult = validationResult;
         return new()
         {
-            ValidationResult = ValidationResult
+            ValidationResult = _validationResult
         };
     }
 
     public CommandHandlerResult SuccessfulCommand(object responseCommand = null) =>
         new()
         {
-            ValidationResult = ValidationResult,
+            ValidationResult = _validationResult,
             Response = responseCommand
         };
 
