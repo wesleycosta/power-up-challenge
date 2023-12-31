@@ -4,7 +4,7 @@
 [![.NET](https://github.com/wesleycosta/power-up-challenge/actions/workflows/dotnet.yml/badge.svg)](https://github.com/wesleycosta/power-up-challenge/actions/workflows/dotnet.yml)
 [![codecov](https://codecov.io/gh/wesleycosta/power-up-challenge/graph/badge.svg?token=TETCQEJXDQ)](https://codecov.io/gh/wesleycosta/power-up-challenge)
 
-O Power-Up-Challenge é um microsserviço que gerencia hábitos em um aplicativo, permitindo que os usuários cadastrem e acompanhem o progresso diário e obtenham insights sobre seu desempenho ao longo do tempo de maneira fácil e intuitiva.
+O PowerUp é um aplicativo que gerencia hábitos, permitindo que os usuários cadastrem e acompanhem o progresso diário e obtenham insights sobre seu desempenho ao longo do tempo de maneira fácil e intuitiva.
 
 ## Funcionalidades Principais
 
