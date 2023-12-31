@@ -20,13 +20,8 @@ jobs:
       - name: Build
         run: dotnet build --no-restore
 
-      - name: Test with coverage
-        run: |
-          dotnet tool install -g coverlet.console
-          dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=./coverage/
-
-      - name: Display files in coverage directory
-        run: ls -R ./coverage/
+      - name: Test
+        run: dotnet test --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
