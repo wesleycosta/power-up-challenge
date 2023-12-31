@@ -35,13 +35,10 @@ jobs:
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        
+        DOCKER_CLI_ASK_PASS: "0"
+
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag wesleycosta/power-up-challenge:$(date +%s)
       
     - name: Docker Push
       run: docker push wesleycosta/power-up-challenge
-
-      
-
-    
