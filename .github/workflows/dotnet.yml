@@ -49,9 +49,7 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build the Docker image
-      run: |
-        cd devops
-        docker build . --file Dockerfile --tag wesleycosta/power-up-challenge:$(date +%s)
+      run: docker build . --file Dockerfile --tag wesleycosta/power-up-challenge:$(date +%s)
       
     - name: Docker Push
       run: docker push wesleycosta/power-up-challenge
